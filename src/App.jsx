@@ -1,9 +1,24 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/LoginPage";
+import CreateAccount from "./pages/CreateAccount";
+import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 
 function App() {
+  const [logindata, setLoginData] = useState({ username: "", password: "" });
+
   return (
     <>
-      <h1 class="m-3 font-semibold text-4xl">Instagram</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login logindata={logindata} />} />
+          <Route
+            path="/create-account"
+            element={<CreateAccount setLoginData={setLoginData} />}
+          />
+        </Routes>
+      </BrowserRouter>
+      <Toaster />
     </>
   );
 }
