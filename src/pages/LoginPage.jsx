@@ -33,8 +33,9 @@ function Login({ logindata }) {
       });
       console.log(responce);
 
-      localStorage.setItem("AccessToken", responce.data.AccessToken);
-      localStorage.setItem("userId", responce.data.userId);
+      localStorage.setItem("Ig_at", responce.data.accessToken);
+      localStorage.setItem("Ig_rt", responce.data.refreshToken);
+      localStorage.setItem("ui", responce.data.userId);
       toast.success("login Successfull");
     } catch (err) {
       toast.error(
